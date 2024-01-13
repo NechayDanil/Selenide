@@ -22,7 +22,7 @@ public class OrderDeliveryTest {
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
         $("[data-test-id=date] input").sendKeys(currentDate);
         $("[data-test-id=name] input").setValue("Василий Васильев Васирович");
-        $("[data-test-id=phone] input").setValue("+01234567890");
+        $("[data-test-id=phone] input").setValue("+0123456789");
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $("[data-test-id=notification]").shouldBe(Condition.visible, Duration.ofSeconds(15))

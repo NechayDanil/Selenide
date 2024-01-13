@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7bb4883-379d-4859-a5fe-fe9f221e8e6e" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OrderDeliveryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OrderDeliveryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,9 +183,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.OrderDeliveryTest" />
+        <item itemvalue="JAR Application.app-card-delivery.jar" />
         <item itemvalue="Gradle.Selenide [test]" />
         <item itemvalue="Gradle.Selenide [dependencies]" />
-        <item itemvalue="JAR Application.app-card-delivery.jar" />
         <item itemvalue="Gradle.OrderDeliveryTest.shouldConfirmCardDelivery" />
       </list>
     </recent_temporary>
@@ -192,6 +193,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-11.0.21-corretto-11.0.21-e1d2075fd9a7-8db56bdc" />
         <option value="jdk-11.0.21-corretto-11.0.21-f644763e9732-97de7592" />
       </set>
     </attachedChunks>

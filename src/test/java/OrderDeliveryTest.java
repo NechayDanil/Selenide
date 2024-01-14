@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -10,25 +11,26 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class OrderDeliveryTest {
 
-    private String createDate(int addDays, String pattern) {
-        return LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern(pattern));
+    private String generateDate(int addDays, String pattern) {
+        return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
 
     @Test
     public void shouldConfirmCardDelivery() {
+        Configuration.headless = true;
+
         open("http://localhost:9999/");
-        $("[data-test-id=city] input").setValue("Екатеринбург");
-        String currentDate = createDate(4, "dd.MM.yyyy");
+        $("[data-test-id='city'] input").setValue("Ека");
+        $$(".menu-item__control").findBy(Condition.text("Екатеринбург")).click();
+        String planningDate = generateDate(4, "dd.MM.yyyy");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-        $("[data-test-id=date] input").sendKeys(currentDate);
-        $("[data-test-id=name] input").setValue("Василий Васильев Васирович");
-        $("[data-test-id=phone] input").setValue("+0123456789");
+        $("[data-test-id=date] input").setValue(planningDate);
+        $("[data-test-id=name] input").setValue("Василий-Васильев Васирович");
+        $("[data-test-id=phone] input").setValue("+78005553535");
         $("[data-test-id=agreement]").click();
-        $(".button__text").click();
-        $("[data-test-id=notification]").shouldBe(Condition.visible, Duration.ofSeconds(15))
-                .shouldHave(Condition.exactText("Успешно! Встреча успешно забронирована на " + currentDate));
-
-
+        $(".button.button").click();
+        $("notification__content")
+                .shouldBe(Condition.visible, Duration.ofSeconds(15))
+                .shouldHave(Condition.exactText("Успешно! Встреча успешно забронирована на " + planningDate));
     }
-
 }
